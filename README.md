@@ -13,6 +13,7 @@ Rx-Recall Watch automatically fetches drug recall data from the FDA, summarizes 
 - Designed for automation (e.g. Task Scheduler or cron)
 
 # Project Structure
+```
 rx-recall-watch/
 ├── data/                  # SQLite DB file 
 ├── utils/
@@ -23,31 +24,32 @@ rx-recall-watch/
 ├── .env.example           # Template for email config
 ├── .gitignore             # Files to exclude from version control
 └── README.md              # This file
+```
 
-## Setup - For users wishing to use this tool
+# Setup - For users wishing to use this tool
 
-# 1. Clone this repo
+## 1. Clone this repo
 
 git clone https://github.com/yourusername/rx-recall-watch.git
 cd rx-recall-watch
 
-# 2. Create and activate virtual env
+## 2. Create and activate virtual env
 python -m venv .venv
 source .venv/bin/activate       # macOS/Linux
 .venv\Scripts\activate          # Windows
 
-# 3. Install your dependencies
+## 3. Install your dependencies
 pip install -r requirements.txt
 
-# 4. Setup your evironment vars
+## 4. Setup your evironment vars
 cp .env.example .env
 
 Open the .env and fill in your email credentials
 
 Note: the pass is not your normal email password you must have Google 2FA setup and generate a Gmail app password
 
-# 5. Run python recall_job.py
+## 5. Run python recall_job.py
 Test if this works
 
-# 6. Automate this system
+## 6. Automate this system
 Use TaskScheduler to run this program daily and it will send you an email if anything got added to your database
