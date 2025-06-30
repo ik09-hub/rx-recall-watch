@@ -33,7 +33,7 @@ def generate_ai_summary(text):
         return "AI summary failed"
     
         
-# Fetch the latest drug recall data from the FDA API (3 most recent recalls)
+# Fetch the latest drug recall data from the FDA API (10 most recent recalls)
 url = "https://api.fda.gov/drug/enforcement.json?sort=report_date:desc&limit=10"
 # We use the requests library to fetch the data from the FDA API
 response = requests.get(url)
