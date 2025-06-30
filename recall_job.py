@@ -1,36 +1,10 @@
 import requests
 import sqlite3
-import subprocess
 from utils.email_utils import send_email
+from utils.ai_utils import generate_ai_summary
 
 '''This script fetches the latest drug recall data from the FDA API, generates AI summaries using Ollama LLaMA3, 
 and stores the data in a SQLite database. If new recalls are found, it sends an email alert with the details.'''
-
-# Function to generate AI summary using Ollama LLaMA3
-def generate_ai_summary(text):
-    #Runs Ollama LLaMA3 locally and returns a one-sentence summary.
-
-    try:
-        # Use subprocess to call Ollama with the given prompt
-        prompt = f"Summarize this drug recall reason in one sentence, simply and clearly:\n{text}"
-        
-        # Call the Ollama command to generate the summary
-        result = subprocess.run(
-            ["ollama", "run", "mistral"],
-            input=prompt,
-            capture_output=True,
-            text=True,
-            encoding ='utf-8',
-            errors = "replace",
-            check=True
-        )
-        # return the generated summary
-        return result.stdout.strip()
-    
-    # Handle errors if Ollama command fails
-    except subprocess.CalledProcessError as e:
-        print("Ollama error:", e.stderr)
-        return "AI summary failed"
     
         
 # Fetch the latest drug recall data from the FDA API (10 most recent recalls)
@@ -44,7 +18,6 @@ data = response.json()
 conn = sqlite3.connect('data/recalls.db')
 # create the cursor object to execute SQL commands
 cursor = conn.cursor()
-
 
 
 #Insert the data into the database
