@@ -5,6 +5,10 @@ A Python tool to monitor FDA drug recalls, summarize reasons using a local LLM, 
 # Overview
 Rx-Recall Watch automatically fetches drug recall data from the FDA, summarizes the reason using a local LLM (Mistral via Ollama), stores the results in a SQLite database, and sends email alerts to keep users informed. Designed for simplicity, privacy, and extendability.
 
+# Dashboard 
+Explore this dashboard of 100 of the most recent recalls and see some analyzations of trends
+https://public.tableau.com/views/FDADrugRecallDashboard/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+
 # Features
 - Automatically fetches FDA recall data
 - Summarizes recall reasons using offline AI (Ollama)
